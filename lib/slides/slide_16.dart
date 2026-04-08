@@ -8,7 +8,7 @@ class Slide16 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -20,50 +20,80 @@ class Slide16 extends StatelessWidget {
               color: Color(0xFFF0F0F0),
             ),
           ),
-          const SizedBox(height: 28),
-          _RevealBlock(
-            visible: step >= 1,
-            child: _ExampleCard(
-              title: 'Aquisição Contínua de Sinais',
-              color: const Color(0xFF58A6FF),
-              bullets: [
-                '▸ Sensores de vibração, temperatura, pressão',
-                '▸ ADC contínuo a 100 kHz+ sem perda',
-              ],
-            ),
-          ),
-          const SizedBox(height: 14),
-          _RevealBlock(
-            visible: step >= 2,
-            child: _ExampleCard(
-              title: 'Processamento de Áudio',
-              color: const Color(0xFF3FB950),
-              bullets: [
-                '▸ I2S + DMA para streaming em tempo real',
-                '▸ Microfone MEMS → FFT → classificação ML',
-              ],
-            ),
-          ),
-          const SizedBox(height: 14),
-          _RevealBlock(
-            visible: step >= 3,
-            child: _ExampleCard(
-              title: 'Comunicação de Alta Velocidade',
-              color: const Color(0xFFD2A8FF),
-              bullets: [
-                '▸ SPI Master a 80 MHz com DMA full-duplex',
-                '▸ Displays TFT, memória externa, comunicação inter-chip',
-              ],
-            ),
-          ),
-          const SizedBox(height: 14),
-          _RevealBlock(
-            visible: step >= 4,
-            child: _ExampleCard(
-              title: 'Controle Industrial',
-              color: const Color(0xFFF78166),
-              bullets: [
-                '▸ Malhas de controle PID com aquisição determinística',
+          const SizedBox(height: 20),
+          Expanded(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // ── Coluna esquerda ──
+                Expanded(
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: _RevealBlock(
+                          visible: step >= 1,
+                          child: _ExampleCard(
+                            title: 'Aquisição Contínua de Sinais',
+                            color: const Color(0xFF58A6FF),
+                            bullets: [
+                              '▸ Sensores de vibração, temperatura, pressão',
+                              '▸ ADC contínuo a 100 kHz+ sem perda',
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Expanded(
+                        child: _RevealBlock(
+                          visible: step >= 2,
+                          child: _ExampleCard(
+                            title: 'Processamento de Áudio',
+                            color: const Color(0xFF3FB950),
+                            bullets: [
+                              '▸ I2S + DMA para streaming em tempo real',
+                              '▸ Microfone MEMS → FFT → classificação ML',
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 24),
+                // ── Coluna direita ──
+                Expanded(
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: _RevealBlock(
+                          visible: step >= 3,
+                          child: _ExampleCard(
+                            title: 'Comunicação de Alta Velocidade',
+                            color: const Color(0xFFD2A8FF),
+                            bullets: [
+                              '▸ SPI Master a 80 MHz com DMA full-duplex',
+                              '▸ Displays TFT, memória externa, comunicação inter-chip',
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Expanded(
+                        child: _RevealBlock(
+                          visible: step >= 4,
+                          child: _ExampleCard(
+                            title: 'Controle Industrial',
+                            color: const Color(0xFFF78166),
+                            bullets: [
+                              '▸ Malhas de controle PID com aquisição determinística',
+                              '▸ Monitoramento contínuo sem perda de dados',
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
@@ -87,11 +117,11 @@ class _ExampleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.08),
-        borderRadius: BorderRadius.circular(10),
-        border: Border(left: BorderSide(color: color, width: 3)),
+        borderRadius: BorderRadius.circular(12),
+        border: Border(left: BorderSide(color: color, width: 4)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,18 +129,22 @@ class _ExampleCard extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              fontSize: 15,
+              fontSize: 20,
               fontWeight: FontWeight.w700,
               color: color,
             ),
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: 12),
           ...bullets.map(
             (b) => Padding(
-              padding: const EdgeInsets.only(bottom: 3),
+              padding: const EdgeInsets.only(bottom: 6),
               child: Text(
                 b,
-                style: const TextStyle(fontSize: 14, color: Color(0xFFC9D1D9)),
+                style: const TextStyle(
+                  fontSize: 17,
+                  color: Color(0xFFC9D1D9),
+                  height: 1.4,
+                ),
               ),
             ),
           ),

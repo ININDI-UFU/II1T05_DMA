@@ -42,7 +42,7 @@ class Slide25 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -54,50 +54,89 @@ class Slide25 extends StatelessWidget {
               color: Color(0xFFF0F0F0),
             ),
           ),
-          const SizedBox(height: 28),
+          const SizedBox(height: 20),
           Expanded(
-            child: Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  for (int i = 0; i < _steps.length; i++) ...[
-                    _RevealBlock(
-                      visible: step >= (i + 1),
-                      child: _FlowCard(data: _steps[i]),
-                    ),
-                    if (i < _steps.length - 1)
-                      _RevealBlock(
-                        visible: step >= (i + 2),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 2),
-                          child: Icon(
-                            Icons.arrow_downward_rounded,
-                            color: _steps[i].color.withValues(alpha: 0.5),
-                            size: 20,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // ── Coluna esquerda (passos 1-3) ──
+                Expanded(
+                  child: Column(
+                    children: [
+                      for (int i = 0; i < 3; i++) ...[
+                        Expanded(
+                          child: _RevealBlock(
+                            visible: step >= (i + 1),
+                            child: _FlowCard(data: _steps[i]),
                           ),
                         ),
-                      ),
-                  ],
-                ],
-              ),
+                        if (i < 2)
+                          _RevealBlock(
+                            visible: step >= (i + 2),
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 4),
+                              child: Icon(
+                                Icons.arrow_downward_rounded,
+                                color: Color(0xFF8B949E),
+                                size: 22,
+                              ),
+                            ),
+                          ),
+                      ],
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 24),
+                // ── Coluna direita (passos 4-6) ──
+                Expanded(
+                  child: Column(
+                    children: [
+                      for (int i = 3; i < 6; i++) ...[
+                        Expanded(
+                          child: _RevealBlock(
+                            visible: step >= (i + 1),
+                            child: _FlowCard(data: _steps[i]),
+                          ),
+                        ),
+                        if (i < 5)
+                          _RevealBlock(
+                            visible: step >= (i + 2),
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 4),
+                              child: Icon(
+                                Icons.arrow_downward_rounded,
+                                color: Color(0xFF8B949E),
+                                size: 22,
+                              ),
+                            ),
+                          ),
+                      ],
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
+          const SizedBox(height: 12),
           _RevealBlock(
             visible: step >= 6,
             child: Container(
               width: double.infinity,
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(
                 color: const Color(0xFF3FB950).withValues(alpha: 0.08),
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(10),
                 border: Border.all(
                   color: const Color(0xFF3FB950).withValues(alpha: 0.3),
                 ),
               ),
               child: const Text(
                 'Os passos 5 e 6 se repetem continuamente. A CPU fica livre entre as notificações.',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 12, color: Color(0xFF3FB950)),
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Color(0xFF3FB950),
+                  height: 1.4,
+                ),
               ),
             ),
           ),
@@ -122,54 +161,58 @@ class _FlowCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 420,
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
       decoration: BoxDecoration(
         color: data.color.withValues(alpha: 0.08),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(color: data.color.withValues(alpha: 0.4)),
       ),
       child: Row(
         children: [
           Container(
-            width: 28,
-            height: 28,
+            width: 36,
+            height: 36,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: data.color.withValues(alpha: 0.2),
-              border: Border.all(color: data.color, width: 1.5),
+              border: Border.all(color: data.color, width: 2),
             ),
             child: Text(
               data.number,
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 16,
                 fontWeight: FontWeight.w700,
                 color: data.color,
               ),
             ),
           ),
-          const SizedBox(width: 12),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                data.title,
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700,
-                  color: data.color,
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  data.title,
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                    color: data.color,
+                  ),
                 ),
-              ),
-              Text(
-                data.detail,
-                style: const TextStyle(
-                  fontSize: 11,
-                  fontFamily: 'monospace',
-                  color: Color(0xFFC9D1D9),
+                const SizedBox(height: 4),
+                Text(
+                  data.detail,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontFamily: 'monospace',
+                    color: Color(0xFFC9D1D9),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

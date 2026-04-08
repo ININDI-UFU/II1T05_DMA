@@ -8,7 +8,7 @@ class Slide08 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -20,99 +20,175 @@ class Slide08 extends StatelessWidget {
               color: Color(0xFFF0F0F0),
             ),
           ),
-          const SizedBox(height: 28),
-          _RevealBlock(
-            visible: step >= 1,
-            child: _buildBulletSection(
-              'General DMA (GDMA)',
-              const Color(0xFF3FB950),
-              [
-                '▸ 5 canais de transmissão (TX) + 5 canais de recepção (RX)',
-                '▸ Linked-list descriptors para transferências encadeadas',
-                '▸ Suporte a burst transfers (4-byte aligned)',
-                '▸ Prioridade configurável por canal',
-              ],
-            ),
-          ),
           const SizedBox(height: 20),
-          _RevealBlock(
-            visible: step >= 2,
-            child: Column(
+          Expanded(
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Modos de Transferência',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xFF58A6FF),
+                // ── Coluna esquerda ──
+                Expanded(
+                  child: _RevealBlock(
+                    visible: step >= 1,
+                    child: Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF3FB950).withValues(alpha: 0.06),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: const Color(
+                            0xFF3FB950,
+                          ).withValues(alpha: 0.25),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'General DMA (GDMA)',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xFF3FB950),
+                            ),
+                          ),
+                          const SizedBox(height: 14),
+                          ...[
+                            '▸ 5 canais de transmissão (TX) + 5 canais de recepção (RX)',
+                            '▸ Linked-list descriptors para transferências encadeadas',
+                            '▸ Suporte a burst transfers (4-byte aligned)',
+                            '▸ Prioridade configurável por canal',
+                          ].map(
+                            (b) => Padding(
+                              padding: const EdgeInsets.only(bottom: 8),
+                              child: Text(
+                                b,
+                                style: const TextStyle(
+                                  fontSize: 17,
+                                  color: Color(0xFFC9D1D9),
+                                  height: 1.4,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-                const SizedBox(height: 8),
-                _TransferMode(
-                  'Periférico → Memória',
-                  const Color(0xFF3FB950),
-                  'leitura ADC, recepção SPI',
+                const SizedBox(width: 24),
+                // ── Coluna direita ──
+                Expanded(
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: _RevealBlock(
+                          visible: step >= 2,
+                          child: Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                              color: const Color(
+                                0xFF58A6FF,
+                              ).withValues(alpha: 0.06),
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                color: const Color(
+                                  0xFF58A6FF,
+                                ).withValues(alpha: 0.25),
+                              ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Modos de Transferência',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color(0xFF58A6FF),
+                                  ),
+                                ),
+                                const SizedBox(height: 14),
+                                _TransferMode(
+                                  'Periférico → Memória',
+                                  const Color(0xFF3FB950),
+                                  'leitura ADC, recepção SPI',
+                                ),
+                                const SizedBox(height: 10),
+                                _TransferMode(
+                                  'Memória → Periférico',
+                                  const Color(0xFF58A6FF),
+                                  'transmissão SPI, saída I2S',
+                                ),
+                                const SizedBox(height: 10),
+                                _TransferMode(
+                                  'Memória → Memória',
+                                  const Color(0xFFD2A8FF),
+                                  'cópia rápida de blocos',
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      _RevealBlock(
+                        visible: step >= 3,
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            color: const Color(
+                              0xFFF78166,
+                            ).withValues(alpha: 0.06),
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              color: const Color(
+                                0xFFF78166,
+                              ).withValues(alpha: 0.25),
+                            ),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: const [
+                              Text(
+                                'Interrupções GDMA',
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                  color: Color(0xFFF78166),
+                                ),
+                              ),
+                              SizedBox(height: 14),
+                              Text(
+                                '▸ Transfer complete, Half-transfer, Error',
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Color(0xFFC9D1D9),
+                                  height: 1.4,
+                                ),
+                              ),
+                              SizedBox(height: 8),
+                              Text(
+                                '▸ Permite processamento em double-buffer (ping-pong)',
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Color(0xFFC9D1D9),
+                                  height: 1.4,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                const SizedBox(height: 6),
-                _TransferMode(
-                  'Memória → Periférico',
-                  const Color(0xFF58A6FF),
-                  'transmissão SPI, saída I2S',
-                ),
-                const SizedBox(height: 6),
-                _TransferMode(
-                  'Memória → Memória',
-                  const Color(0xFFD2A8FF),
-                  'cópia rápida de blocos',
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 20),
-          _RevealBlock(
-            visible: step >= 3,
-            child: _buildBulletSection(
-              'Interrupções GDMA',
-              const Color(0xFFF78166),
-              [
-                '▸ Transfer complete, Half-transfer, Error',
-                '▸ Permite processamento em double-buffer (ping-pong)',
               ],
             ),
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildBulletSection(
-    String title,
-    Color titleColor,
-    List<String> bullets,
-  ) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-            color: titleColor,
-          ),
-        ),
-        const SizedBox(height: 8),
-        ...bullets.map(
-          (b) => Padding(
-            padding: const EdgeInsets.only(bottom: 4),
-            child: Text(
-              b,
-              style: const TextStyle(fontSize: 14, color: Color(0xFFC9D1D9)),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
@@ -128,7 +204,7 @@ class _TransferMode extends StatelessWidget {
     return Row(
       children: [
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
           decoration: BoxDecoration(
             color: color.withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(6),
@@ -137,16 +213,18 @@ class _TransferMode extends StatelessWidget {
           child: Text(
             label,
             style: TextStyle(
-              fontSize: 13,
+              fontSize: 15,
               fontWeight: FontWeight.w700,
               color: color,
             ),
           ),
         ),
-        const SizedBox(width: 10),
-        Text(
-          '($desc)',
-          style: const TextStyle(fontSize: 13, color: Color(0xFF8B949E)),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Text(
+            '($desc)',
+            style: const TextStyle(fontSize: 15, color: Color(0xFF8B949E)),
+          ),
         ),
       ],
     );

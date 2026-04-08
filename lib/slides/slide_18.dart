@@ -8,7 +8,7 @@ class Slide18 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -20,66 +20,233 @@ class Slide18 extends StatelessWidget {
               color: Color(0xFFF0F0F0),
             ),
           ),
-          const SizedBox(height: 28),
-          _RevealBlock(
-            visible: step >= 1,
-            child: _buildBulletSection(
-              'Leitura Simples (oneshot)',
-              const Color(0xFFF78166),
-              [
-                '▸ CPU solicita → ADC converte → CPU lê resultado',
-                '▸ Bloqueante: CPU espera ~25 µs',
-                '▸ Máximo prático: ~40 kSPS',
-              ],
-            ),
-          ),
           const SizedBox(height: 20),
-          _RevealBlock(
-            visible: step >= 2,
-            child: _buildBulletSection(
-              'Leitura Contínua com DMA',
-              const Color(0xFF3FB950),
-              [
-                '▸ ADC opera em modo contínuo (free-running)',
-                '▸ DMA transfere automaticamente para buffer na RAM',
-                '▸ Interrupção ao preencher metade do buffer (half-transfer)',
-                '▸ CPU processa enquanto DMA preenche outra metade',
-              ],
-            ),
-          ),
-          const SizedBox(height: 20),
-          _RevealBlock(
-            visible: step >= 3,
-            child: Column(
+          Expanded(
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Especificações Técnicas (ESP32-S3)',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xFFD2A8FF),
-                  ),
-                ),
-                const SizedBox(height: 8),
-                const Text(
-                  '▸ 2x ADC SAR, 12-bit, até 20 canais',
-                  style: TextStyle(fontSize: 14, color: Color(0xFFC9D1D9)),
-                ),
-                const SizedBox(height: 4),
-                RichText(
-                  text: const TextSpan(
-                    style: TextStyle(fontSize: 14, color: Color(0xFFC9D1D9)),
+                // ── Coluna esquerda ──
+                Expanded(
+                  child: Column(
                     children: [
-                      TextSpan(text: '▸ Taxa máxima com DMA: '),
-                      TextSpan(
-                        text: '~83.3 kHz por canal',
-                        style: TextStyle(
-                          color: Color(0xFF3FB950),
-                          fontWeight: FontWeight.w700,
+                      Expanded(
+                        child: _RevealBlock(
+                          visible: step >= 1,
+                          child: Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                              color: const Color(
+                                0xFFF78166,
+                              ).withValues(alpha: 0.06),
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                color: const Color(
+                                  0xFFF78166,
+                                ).withValues(alpha: 0.25),
+                              ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  'Leitura Simples (oneshot)',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color(0xFFF78166),
+                                  ),
+                                ),
+                                SizedBox(height: 14),
+                                Text(
+                                  '▸ CPU solicita → ADC converte → CPU lê resultado',
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    color: Color(0xFFC9D1D9),
+                                    height: 1.4,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  '▸ Bloqueante: CPU espera ~25 µs',
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    color: Color(0xFFC9D1D9),
+                                    height: 1.4,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  '▸ Máximo prático: ~40 kSPS',
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    color: Color(0xFFC9D1D9),
+                                    height: 1.4,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Expanded(
+                        child: _RevealBlock(
+                          visible: step >= 2,
+                          child: Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                              color: const Color(
+                                0xFF3FB950,
+                              ).withValues(alpha: 0.06),
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(
+                                color: const Color(
+                                  0xFF3FB950,
+                                ).withValues(alpha: 0.25),
+                              ),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  'Leitura Contínua com DMA',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    color: Color(0xFF3FB950),
+                                  ),
+                                ),
+                                SizedBox(height: 14),
+                                Text(
+                                  '▸ ADC opera em modo contínuo (free-running)',
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    color: Color(0xFFC9D1D9),
+                                    height: 1.4,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  '▸ DMA transfere automaticamente para buffer na RAM',
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    color: Color(0xFFC9D1D9),
+                                    height: 1.4,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  '▸ Interrupção ao preencher metade do buffer',
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    color: Color(0xFFC9D1D9),
+                                    height: 1.4,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  '▸ CPU processa enquanto DMA preenche outra metade',
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    color: Color(0xFFC9D1D9),
+                                    height: 1.4,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                       ),
                     ],
+                  ),
+                ),
+                const SizedBox(width: 24),
+                // ── Coluna direita ──
+                Expanded(
+                  child: _RevealBlock(
+                    visible: step >= 3,
+                    child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFD2A8FF).withValues(alpha: 0.06),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: const Color(
+                            0xFFD2A8FF,
+                          ).withValues(alpha: 0.25),
+                        ),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Especificações Técnicas (ESP32-S3)',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xFFD2A8FF),
+                            ),
+                          ),
+                          const SizedBox(height: 14),
+                          const Text(
+                            '▸ 2x ADC SAR, 12-bit, até 20 canais',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Color(0xFFC9D1D9),
+                              height: 1.4,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          RichText(
+                            text: const TextSpan(
+                              style: TextStyle(
+                                fontSize: 17,
+                                color: Color(0xFFC9D1D9),
+                                height: 1.4,
+                              ),
+                              children: [
+                                TextSpan(text: '▸ Taxa máxima com DMA: '),
+                                TextSpan(
+                                  text: '~83.3 kHz por canal',
+                                  style: TextStyle(
+                                    color: Color(0xFF3FB950),
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 24),
+                          Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: const Color(
+                                0xFF3FB950,
+                              ).withValues(alpha: 0.08),
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: const Color(
+                                  0xFF3FB950,
+                                ).withValues(alpha: 0.3),
+                              ),
+                            ),
+                            child: const Text(
+                              'Com DMA, a CPU fica 100% livre durante a aquisição contínua de dados analógicos.',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Color(0xFF3FB950),
+                                fontStyle: FontStyle.italic,
+                                height: 1.5,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ],
@@ -87,36 +254,6 @@ class Slide18 extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildBulletSection(
-    String title,
-    Color titleColor,
-    List<String> bullets,
-  ) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-            color: titleColor,
-          ),
-        ),
-        const SizedBox(height: 8),
-        ...bullets.map(
-          (b) => Padding(
-            padding: const EdgeInsets.only(bottom: 4),
-            child: Text(
-              b,
-              style: const TextStyle(fontSize: 14, color: Color(0xFFC9D1D9)),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }
