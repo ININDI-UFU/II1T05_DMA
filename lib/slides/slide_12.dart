@@ -8,7 +8,7 @@ class Slide12 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -43,7 +43,7 @@ class Slide12 extends StatelessWidget {
                     child: RichText(
                       text: const TextSpan(
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 17,
                           color: Color(0xFFC9D1D9),
                         ),
                         children: [
@@ -181,7 +181,7 @@ class _TimelineRow extends StatelessWidget {
           child: Text(
             label,
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 16,
               fontWeight: FontWeight.w700,
               color: labelColor,
             ),
@@ -202,7 +202,7 @@ class _TimelineRow extends StatelessWidget {
                 b.label,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 10,
+                  fontSize: 12,
                   color: b.textColor,
                   fontWeight: FontWeight.w600,
                 ),

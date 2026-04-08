@@ -8,7 +8,7 @@ class Slide15 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -20,7 +20,7 @@ class Slide15 extends StatelessWidget {
               color: Color(0xFFF0F0F0),
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 20),
           Expanded(
             child: Row(
               children: [
@@ -126,7 +126,7 @@ class _PillarCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(18),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: bgColor.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(14),
@@ -138,13 +138,13 @@ class _PillarCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(icon, color: color, size: 24),
+              Icon(icon, color: color, size: 28),
               const SizedBox(width: 10),
               Flexible(
                 child: Text(
                   title,
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 20,
                     fontWeight: FontWeight.w700,
                     color: color,
                   ),
@@ -158,7 +158,7 @@ class _PillarCard extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 4),
               child: Text(
                 l,
-                style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)),
+                style: const TextStyle(fontSize: 17, color: Color(0xFFC9D1D9)),
               ),
             ),
           ),

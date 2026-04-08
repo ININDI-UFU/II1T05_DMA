@@ -21,52 +21,107 @@ class Slide05 extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
+          // ── Card 1: largura total ──
+          _RevealBlock(
+            visible: step >= 1,
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: const Color(0xFF58A6FF).withValues(alpha: 0.06),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: const Color(0xFF58A6FF).withValues(alpha: 0.25),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text(
+                    'Sistemas Embarcados Modernos',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF58A6FF),
+                    ),
+                  ),
+                  const SizedBox(height: 14),
+                  ...[
+                    '▸ Múltiplos periféricos operando simultaneamente',
+                    '▸ Taxas de aquisição de dados cada vez maiores',
+                    '▸ Requisitos de tempo real com latências críticas',
+                  ].map(
+                    (b) => Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Text(
+                        b,
+                        style: const TextStyle(
+                          fontSize: 17,
+                          color: Color(0xFFC9D1D9),
+                          height: 1.4,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          // ── Cards 2 e 3: lado a lado ──
           Expanded(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // ── Coluna esquerda ──
                 Expanded(
                   child: _RevealBlock(
-                    visible: step >= 1,
+                    visible: step >= 2,
                     child: Container(
+                      width: double.infinity,
+                      height: double.infinity,
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF58A6FF).withValues(alpha: 0.06),
+                        color: const Color(0xFF2D1600).withValues(alpha: 0.4),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
-                          color: const Color(
-                            0xFF58A6FF,
-                          ).withValues(alpha: 0.25),
+                          color: const Color(0xFFF78166).withValues(alpha: 0.3),
                         ),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            'Sistemas Embarcados Modernos',
+                            'Sem DMA — Problemas',
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.w700,
-                              color: Color(0xFF58A6FF),
+                              color: Color(0xFFF78166),
                             ),
                           ),
                           const SizedBox(height: 14),
-                          ...[
-                            '▸ Múltiplos periféricos operando simultaneamente',
-                            '▸ Taxas de aquisição de dados cada vez maiores',
-                            '▸ Requisitos de tempo real com latências críticas',
-                          ].map(
-                            (b) => Padding(
-                              padding: const EdgeInsets.only(bottom: 8),
-                              child: Text(
-                                b,
-                                style: const TextStyle(
-                                  fontSize: 17,
-                                  color: Color(0xFFC9D1D9),
-                                  height: 1.4,
-                                ),
-                              ),
+                          _hlText(
+                            '▸ CPU gasta ciclos movendo bytes (até ',
+                            '70–90%',
+                            ')',
+                            const Color(0xFFF78166),
+                          ),
+                          const SizedBox(height: 8),
+                          const Text(
+                            '▸ Perda de amostras em alta frequência',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Color(0xFFC9D1D9),
+                              height: 1.4,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          const Text(
+                            '▸ Jitter temporal inaceitável para controle PID',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Color(0xFFC9D1D9),
+                              height: 1.4,
                             ),
                           ),
                         ],
@@ -75,128 +130,59 @@ class Slide05 extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 24),
-                // ── Coluna direita ──
                 Expanded(
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: _RevealBlock(
-                          visible: step >= 2,
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                              color: const Color(
-                                0xFF2D1600,
-                              ).withValues(alpha: 0.4),
-                              borderRadius: BorderRadius.circular(12),
-                              border: Border.all(
-                                color: const Color(
-                                  0xFFF78166,
-                                ).withValues(alpha: 0.3),
-                              ),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  'Sem DMA — Problemas',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w700,
-                                    color: Color(0xFFF78166),
-                                  ),
-                                ),
-                                const SizedBox(height: 14),
-                                _hlText(
-                                  '▸ CPU gasta ciclos movendo bytes (até ',
-                                  '70–90%',
-                                  ')',
-                                  const Color(0xFFF78166),
-                                ),
-                                const SizedBox(height: 8),
-                                const Text(
-                                  '▸ Perda de amostras em alta frequência',
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    color: Color(0xFFC9D1D9),
-                                    height: 1.4,
-                                  ),
-                                ),
-                                const SizedBox(height: 8),
-                                const Text(
-                                  '▸ Jitter temporal inaceitável para controle PID',
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    color: Color(0xFFC9D1D9),
-                                    height: 1.4,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                  child: _RevealBlock(
+                    visible: step >= 3,
+                    child: Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF0D2818).withValues(alpha: 0.4),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: const Color(0xFF3FB950).withValues(alpha: 0.3),
                         ),
                       ),
-                      const SizedBox(height: 16),
-                      Expanded(
-                        child: _RevealBlock(
-                          visible: step >= 3,
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                              color: const Color(
-                                0xFF0D2818,
-                              ).withValues(alpha: 0.4),
-                              borderRadius: BorderRadius.circular(12),
-                              border: Border.all(
-                                color: const Color(
-                                  0xFF3FB950,
-                                ).withValues(alpha: 0.3),
-                              ),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  'Com DMA — Solução',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w700,
-                                    color: Color(0xFF3FB950),
-                                  ),
-                                ),
-                                const SizedBox(height: 14),
-                                const Text(
-                                  '▸ Transferências automáticas em background',
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    color: Color(0xFFC9D1D9),
-                                    height: 1.4,
-                                  ),
-                                ),
-                                const SizedBox(height: 8),
-                                _hlText(
-                                  '▸ Zero perda de amostras com ',
-                                  'buffer circular',
-                                  null,
-                                  const Color(0xFF3FB950),
-                                ),
-                                const SizedBox(height: 8),
-                                const Text(
-                                  '▸ Determinismo temporal para aplicações críticas',
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    color: Color(0xFFC9D1D9),
-                                    height: 1.4,
-                                  ),
-                                ),
-                              ],
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Com DMA — Solução',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xFF3FB950),
                             ),
                           ),
-                        ),
+                          const SizedBox(height: 14),
+                          const Text(
+                            '▸ Transferências automáticas em background',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Color(0xFFC9D1D9),
+                              height: 1.4,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          _hlText(
+                            '▸ Zero perda de amostras com ',
+                            'buffer circular',
+                            null,
+                            const Color(0xFF3FB950),
+                          ),
+                          const SizedBox(height: 8),
+                          const Text(
+                            '▸ Determinismo temporal para aplicações críticas',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Color(0xFFC9D1D9),
+                              height: 1.4,
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ],

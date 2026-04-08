@@ -8,7 +8,7 @@ class Slide21 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -20,7 +20,7 @@ class Slide21 extends StatelessWidget {
               color: Color(0xFFF0F0F0),
             ),
           ),
-          const SizedBox(height: 28),
+          const SizedBox(height: 20),
           _RevealBlock(
             visible: step >= 1,
             child: Container(
@@ -146,7 +146,7 @@ class _InfoBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.06),
         borderRadius: BorderRadius.circular(10),
@@ -159,7 +159,7 @@ class _InfoBox extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 18,
               fontWeight: FontWeight.w700,
               color: color,
             ),
@@ -170,7 +170,7 @@ class _InfoBox extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 4),
               child: Text(
                 i,
-                style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)),
+                style: const TextStyle(fontSize: 16, color: Color(0xFFC9D1D9)),
               ),
             ),
           ),

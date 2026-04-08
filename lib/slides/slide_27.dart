@@ -8,7 +8,7 @@ class Slide27 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -20,7 +20,7 @@ class Slide27 extends StatelessWidget {
               color: Color(0xFFF0F0F0),
             ),
           ),
-          const SizedBox(height: 28),
+          const SizedBox(height: 20),
           // Header
           _TableHeader(),
           const SizedBox(height: 1),
@@ -80,7 +80,7 @@ class Slide27 extends StatelessWidget {
                 'Para aplicações de alta frequência e tempo real, DMA é a escolha ideal — libera a CPU e garante aquisição determinística.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 13,
+                  fontSize: 16,
                   fontWeight: FontWeight.w600,
                   color: Color(0xFF3FB950),
                 ),
@@ -110,7 +110,7 @@ class _TableHeader extends StatelessWidget {
             child: Text(
               'Método',
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 15,
                 fontWeight: FontWeight.w700,
                 color: Color(0xFF8B949E),
               ),
@@ -121,7 +121,7 @@ class _TableHeader extends StatelessWidget {
             child: Text(
               'Uso CPU',
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 15,
                 fontWeight: FontWeight.w700,
                 color: Color(0xFF8B949E),
               ),
@@ -132,7 +132,7 @@ class _TableHeader extends StatelessWidget {
             child: Text(
               'Throughput',
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 15,
                 fontWeight: FontWeight.w700,
                 color: Color(0xFF8B949E),
               ),
@@ -143,7 +143,7 @@ class _TableHeader extends StatelessWidget {
             child: Text(
               'Latência',
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 15,
                 fontWeight: FontWeight.w700,
                 color: Color(0xFF8B949E),
               ),
@@ -154,7 +154,7 @@ class _TableHeader extends StatelessWidget {
             child: Text(
               'Complex.',
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 15,
                 fontWeight: FontWeight.w700,
                 color: Color(0xFF8B949E),
               ),
@@ -166,7 +166,7 @@ class _TableHeader extends StatelessWidget {
               'RT',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 15,
                 fontWeight: FontWeight.w700,
                 color: Color(0xFF8B949E),
               ),
@@ -216,7 +216,7 @@ class _TableRow extends StatelessWidget {
             child: Text(
               method,
               style: TextStyle(
-                fontSize: 13,
+                fontSize: 16,
                 fontWeight: FontWeight.w700,
                 color: color,
               ),
@@ -226,28 +226,28 @@ class _TableRow extends StatelessWidget {
             flex: 3,
             child: Text(
               cpu,
-              style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)),
+              style: const TextStyle(fontSize: 16, color: Color(0xFFC9D1D9)),
             ),
           ),
           Expanded(
             flex: 2,
             child: Text(
               throughput,
-              style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)),
+              style: const TextStyle(fontSize: 16, color: Color(0xFFC9D1D9)),
             ),
           ),
           Expanded(
             flex: 2,
             child: Text(
               latency,
-              style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)),
+              style: const TextStyle(fontSize: 16, color: Color(0xFFC9D1D9)),
             ),
           ),
           Expanded(
             flex: 2,
             child: Text(
               complexity,
-              style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)),
+              style: const TextStyle(fontSize: 16, color: Color(0xFFC9D1D9)),
             ),
           ),
           SizedBox(

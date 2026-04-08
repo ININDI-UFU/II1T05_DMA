@@ -8,7 +8,7 @@ class Slide19 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -20,7 +20,7 @@ class Slide19 extends StatelessWidget {
               color: Color(0xFFF0F0F0),
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 20),
           Expanded(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,7 +51,7 @@ class Slide19 extends StatelessWidget {
                                   const Text(
                                     'SWAP',
                                     style: TextStyle(
-                                      fontSize: 12,
+                                      fontSize: 15,
                                       fontWeight: FontWeight.w700,
                                       color: Color(0xFFFFA657),
                                     ),
@@ -60,7 +60,7 @@ class Slide19 extends StatelessWidget {
                                   Icon(
                                     Icons.swap_horiz_rounded,
                                     color: const Color(0xFFFFA657),
-                                    size: 28,
+                                    size: 32,
                                   ),
                                 ],
                               ),
@@ -86,7 +86,7 @@ class Slide19 extends StatelessWidget {
                   child: _RevealBlock(
                     visible: step >= 2,
                     child: Container(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         color: const Color(0xFF161B22).withValues(alpha: 0.8),
                         borderRadius: BorderRadius.circular(12),
@@ -101,7 +101,7 @@ class Slide19 extends StatelessWidget {
                           const Text(
                             'Como funciona',
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 20,
                               fontWeight: FontWeight.w700,
                               color: Color(0xFFFFA657),
                             ),
@@ -119,7 +119,7 @@ class Slide19 extends StatelessWidget {
                               child: Text(
                                 s,
                                 style: const TextStyle(
-                                  fontSize: 13,
+                                  fontSize: 16,
                                   color: Color(0xFFC9D1D9),
                                 ),
                               ),
@@ -129,7 +129,7 @@ class Slide19 extends StatelessWidget {
                           RichText(
                             text: const TextSpan(
                               style: TextStyle(
-                                fontSize: 13,
+                                fontSize: 16,
                                 color: Color(0xFFC9D1D9),
                               ),
                               children: [
@@ -159,7 +159,7 @@ class Slide19 extends StatelessWidget {
           const SizedBox(height: 10),
           const Text(
             'O padrão ping-pong é implementado automaticamente pelo driver adc_continuous do ESP-IDF',
-            style: TextStyle(fontSize: 12, color: Color(0xFF8B949E)),
+            style: TextStyle(fontSize: 14, color: Color(0xFF8B949E)),
           ),
         ],
       ),
@@ -188,7 +188,7 @@ class _BufferBox extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 17,
               fontWeight: FontWeight.w700,
               color: color,
             ),
@@ -196,7 +196,7 @@ class _BufferBox extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             subtitle,
-            style: TextStyle(fontSize: 11, color: color.withValues(alpha: 0.7)),
+            style: TextStyle(fontSize: 14, color: color.withValues(alpha: 0.7)),
           ),
           const SizedBox(height: 10),
           Wrap(
@@ -217,7 +217,7 @@ class _BufferBox extends StatelessWidget {
                     child: Text(
                       c,
                       style: TextStyle(
-                        fontSize: 11,
+                        fontSize: 13,
                         color: color,
                         fontFamily: 'monospace',
                       ),

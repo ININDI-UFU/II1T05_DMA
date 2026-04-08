@@ -8,7 +8,7 @@ class Slide04 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -20,7 +20,7 @@ class Slide04 extends StatelessWidget {
               color: Color(0xFFF0F0F0),
             ),
           ),
-          const SizedBox(height: 28),
+          const SizedBox(height: 20),
           Expanded(
             child: Row(
               children: [
@@ -100,7 +100,7 @@ class Slide04 extends StatelessWidget {
           const Text(
             'Com DMA, a CPU fica livre para executar código enquanto os dados são transferidos automaticamente pelo hardware',
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 14, color: Color(0xFF8B949E)),
+            style: TextStyle(fontSize: 17, color: Color(0xFF8B949E)),
           ),
         ],
       ),
@@ -134,7 +134,7 @@ class Slide04 extends StatelessWidget {
                 child: Text(
                   title,
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 20,
                     fontWeight: FontWeight.w700,
                     color: iconColor,
                   ),
@@ -170,7 +170,7 @@ class Slide04 extends StatelessWidget {
                 b.label,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 13,
+                  fontSize: 16,
                   color: b.color,
                   fontWeight: FontWeight.w600,
                 ),

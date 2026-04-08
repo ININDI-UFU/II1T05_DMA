@@ -21,22 +21,73 @@ class Slide08 extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
+          // ── Card 1: GDMA — largura total ──
+          _RevealBlock(
+            visible: step >= 1,
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: const Color(0xFF3FB950).withValues(alpha: 0.06),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: const Color(0xFF3FB950).withValues(alpha: 0.25),
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text(
+                    'General DMA (GDMA)',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF3FB950),
+                    ),
+                  ),
+                  const SizedBox(height: 14),
+                  ...[
+                    '▸ 5 canais de transmissão (TX) + 5 canais de recepção (RX)',
+                    '▸ Linked-list descriptors para transferências encadeadas',
+                    '▸ Suporte a burst transfers (4-byte aligned)',
+                    '▸ Prioridade configurável por canal',
+                  ].map(
+                    (b) => Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Text(
+                        b,
+                        style: const TextStyle(
+                          fontSize: 17,
+                          color: Color(0xFFC9D1D9),
+                          height: 1.4,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: 16),
+          // ── Cards 2 e 3: lado a lado ──
           Expanded(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // ── Coluna esquerda ──
                 Expanded(
                   child: _RevealBlock(
-                    visible: step >= 1,
+                    visible: step >= 2,
                     child: Container(
+                      width: double.infinity,
+                      height: double.infinity,
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF3FB950).withValues(alpha: 0.06),
+                        color: const Color(0xFF58A6FF).withValues(alpha: 0.06),
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(
                           color: const Color(
-                            0xFF3FB950,
+                            0xFF58A6FF,
                           ).withValues(alpha: 0.25),
                         ),
                       ),
@@ -44,31 +95,30 @@ class Slide08 extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            'General DMA (GDMA)',
+                            'Modos de Transferência',
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.w700,
-                              color: Color(0xFF3FB950),
+                              color: Color(0xFF58A6FF),
                             ),
                           ),
                           const SizedBox(height: 14),
-                          ...[
-                            '▸ 5 canais de transmissão (TX) + 5 canais de recepção (RX)',
-                            '▸ Linked-list descriptors para transferências encadeadas',
-                            '▸ Suporte a burst transfers (4-byte aligned)',
-                            '▸ Prioridade configurável por canal',
-                          ].map(
-                            (b) => Padding(
-                              padding: const EdgeInsets.only(bottom: 8),
-                              child: Text(
-                                b,
-                                style: const TextStyle(
-                                  fontSize: 17,
-                                  color: Color(0xFFC9D1D9),
-                                  height: 1.4,
-                                ),
-                              ),
-                            ),
+                          _TransferMode(
+                            'Periférico → Memória',
+                            const Color(0xFF3FB950),
+                            'leitura ADC, recepção SPI',
+                          ),
+                          const SizedBox(height: 10),
+                          _TransferMode(
+                            'Memória → Periférico',
+                            const Color(0xFF58A6FF),
+                            'transmissão SPI, saída I2S',
+                          ),
+                          const SizedBox(height: 10),
+                          _TransferMode(
+                            'Memória → Memória',
+                            const Color(0xFFD2A8FF),
+                            'cópia rápida de blocos',
                           ),
                         ],
                       ),
@@ -76,112 +126,54 @@ class Slide08 extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 24),
-                // ── Coluna direita ──
                 Expanded(
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: _RevealBlock(
-                          visible: step >= 2,
-                          child: Container(
-                            width: double.infinity,
-                            padding: const EdgeInsets.all(20),
-                            decoration: BoxDecoration(
-                              color: const Color(
-                                0xFF58A6FF,
-                              ).withValues(alpha: 0.06),
-                              borderRadius: BorderRadius.circular(12),
-                              border: Border.all(
-                                color: const Color(
-                                  0xFF58A6FF,
-                                ).withValues(alpha: 0.25),
-                              ),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  'Modos de Transferência',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w700,
-                                    color: Color(0xFF58A6FF),
-                                  ),
-                                ),
-                                const SizedBox(height: 14),
-                                _TransferMode(
-                                  'Periférico → Memória',
-                                  const Color(0xFF3FB950),
-                                  'leitura ADC, recepção SPI',
-                                ),
-                                const SizedBox(height: 10),
-                                _TransferMode(
-                                  'Memória → Periférico',
-                                  const Color(0xFF58A6FF),
-                                  'transmissão SPI, saída I2S',
-                                ),
-                                const SizedBox(height: 10),
-                                _TransferMode(
-                                  'Memória → Memória',
-                                  const Color(0xFFD2A8FF),
-                                  'cópia rápida de blocos',
-                                ),
-                              ],
-                            ),
-                          ),
+                  child: _RevealBlock(
+                    visible: step >= 3,
+                    child: Container(
+                      width: double.infinity,
+                      height: double.infinity,
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFF78166).withValues(alpha: 0.06),
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: const Color(
+                            0xFFF78166,
+                          ).withValues(alpha: 0.25),
                         ),
                       ),
-                      const SizedBox(height: 16),
-                      _RevealBlock(
-                        visible: step >= 3,
-                        child: Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                            color: const Color(
-                              0xFFF78166,
-                            ).withValues(alpha: 0.06),
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              color: const Color(
-                                0xFFF78166,
-                              ).withValues(alpha: 0.25),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Interrupções GDMA',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xFFF78166),
                             ),
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text(
-                                'Interrupções GDMA',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700,
-                                  color: Color(0xFFF78166),
-                                ),
-                              ),
-                              SizedBox(height: 14),
-                              Text(
-                                '▸ Transfer complete, Half-transfer, Error',
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Color(0xFFC9D1D9),
-                                  height: 1.4,
-                                ),
-                              ),
-                              SizedBox(height: 8),
-                              Text(
-                                '▸ Permite processamento em double-buffer (ping-pong)',
-                                style: TextStyle(
-                                  fontSize: 17,
-                                  color: Color(0xFFC9D1D9),
-                                  height: 1.4,
-                                ),
-                              ),
-                            ],
+                          SizedBox(height: 14),
+                          Text(
+                            '▸ Transfer complete, Half-transfer, Error',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Color(0xFFC9D1D9),
+                              height: 1.4,
+                            ),
                           ),
-                        ),
+                          SizedBox(height: 8),
+                          Text(
+                            '▸ Permite processamento em double-buffer (ping-pong)',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Color(0xFFC9D1D9),
+                              height: 1.4,
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ],

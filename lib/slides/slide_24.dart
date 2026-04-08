@@ -23,7 +23,7 @@ class Slide24 extends StatelessWidget {
           const SizedBox(height: 4),
           const Text(
             'ESP-IDF • Callback de conversão + app_main()',
-            style: TextStyle(fontSize: 13, color: Color(0xFF8B949E)),
+            style: TextStyle(fontSize: 15, color: Color(0xFF8B949E)),
           ),
           const SizedBox(height: 16),
           Expanded(
@@ -108,7 +108,7 @@ class _CodeBlock extends StatelessWidget {
           code,
           style: const TextStyle(
             fontFamily: 'monospace',
-            fontSize: 12,
+            fontSize: 13,
             height: 1.5,
             color: Color(0xFFC9D1D9),
           ),

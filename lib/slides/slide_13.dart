@@ -8,7 +8,7 @@ class Slide13 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -20,7 +20,7 @@ class Slide13 extends StatelessWidget {
               color: Color(0xFFF0F0F0),
             ),
           ),
-          const SizedBox(height: 28),
+          const SizedBox(height: 20),
           Expanded(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,7 +139,7 @@ class _MetricsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: bgColor.withValues(alpha: 0.4),
         borderRadius: BorderRadius.circular(12),
@@ -152,7 +152,7 @@ class _MetricsCard extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 20,
               fontWeight: FontWeight.w700,
               color: titleColor,
             ),
@@ -164,7 +164,7 @@ class _MetricsCard extends StatelessWidget {
               child: RichText(
                 text: TextSpan(
                   style: const TextStyle(
-                    fontSize: 14,
+                    fontSize: 17,
                     color: Color(0xFFC9D1D9),
                   ),
                   children: [
@@ -207,7 +207,7 @@ class _CompareItem extends StatelessWidget {
       children: [
         Text(
           label,
-          style: const TextStyle(fontSize: 12, color: Color(0xFF8B949E)),
+          style: const TextStyle(fontSize: 15, color: Color(0xFF8B949E)),
         ),
         const SizedBox(height: 4),
         Row(
@@ -216,19 +216,19 @@ class _CompareItem extends StatelessWidget {
             Text(
               bad,
               style: const TextStyle(
-                fontSize: 13,
+                fontSize: 16,
                 color: Color(0xFFF78166),
                 fontWeight: FontWeight.w700,
               ),
             ),
             const Text(
               ' → ',
-              style: TextStyle(fontSize: 13, color: Color(0xFF8B949E)),
+              style: TextStyle(fontSize: 16, color: Color(0xFF8B949E)),
             ),
             Text(
               good,
               style: const TextStyle(
-                fontSize: 13,
+                fontSize: 16,
                 color: Color(0xFF3FB950),
                 fontWeight: FontWeight.w700,
               ),

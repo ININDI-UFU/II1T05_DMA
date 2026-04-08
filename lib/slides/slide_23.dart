@@ -23,7 +23,7 @@ class Slide23 extends StatelessWidget {
           const SizedBox(height: 4),
           const Text(
             'ESP-IDF • adc_continuous_config()',
-            style: TextStyle(fontSize: 13, color: Color(0xFF8B949E)),
+            style: TextStyle(fontSize: 15, color: Color(0xFF8B949E)),
           ),
           const SizedBox(height: 16),
           Expanded(
@@ -87,7 +87,7 @@ void init_adc_continuous(void) {
                   Text(
                     'Pontos-chave:',
                     style: TextStyle(
-                      fontSize: 13,
+                      fontSize: 16,
                       fontWeight: FontWeight.w700,
                       color: Color(0xFF58A6FF),
                     ),
@@ -95,17 +95,17 @@ void init_adc_continuous(void) {
                   SizedBox(height: 4),
                   Text(
                     '▸ max_store_buf_size — tamanho máximo do pool de buffers DMA internos',
-                    style: TextStyle(fontSize: 12, color: Color(0xFFC9D1D9)),
+                    style: TextStyle(fontSize: 15, color: Color(0xFFC9D1D9)),
                   ),
                   SizedBox(height: 2),
                   Text(
                     '▸ conv_frame_size — tamanho de cada frame de conversão',
-                    style: TextStyle(fontSize: 12, color: Color(0xFFC9D1D9)),
+                    style: TextStyle(fontSize: 15, color: Color(0xFFC9D1D9)),
                   ),
                   SizedBox(height: 2),
                   Text(
                     '▸ adc_pattern — seleciona canal, atenuação e resolução',
-                    style: TextStyle(fontSize: 12, color: Color(0xFFC9D1D9)),
+                    style: TextStyle(fontSize: 15, color: Color(0xFFC9D1D9)),
                   ),
                 ],
               ),
@@ -138,7 +138,7 @@ class _CodeBlock extends StatelessWidget {
           code,
           style: const TextStyle(
             fontFamily: 'monospace',
-            fontSize: 12,
+            fontSize: 13,
             height: 1.5,
             color: Color(0xFFC9D1D9),
           ),
