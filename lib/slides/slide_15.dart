@@ -14,7 +14,11 @@ class Slide15 extends StatelessWidget {
         children: [
           const Text(
             '4 Pilares do DMA',
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Color(0xFFF0F0F0)),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFFF0F0F0),
+            ),
           ),
           const SizedBox(height: 24),
           Expanded(
@@ -31,7 +35,10 @@ class Slide15 extends StatelessWidget {
                             title: 'Redução de Carga',
                             color: const Color(0xFF58A6FF),
                             bgColor: const Color(0xFF0D1F33),
-                            lines: ['CPU livre para lógica de aplicação', 'De ~90% para ~0% de uso em I/O'],
+                            lines: [
+                              'CPU livre para lógica de aplicação',
+                              'De ~90% para ~0% de uso em I/O',
+                            ],
                           ),
                         ),
                       ),
@@ -44,7 +51,10 @@ class Slide15 extends StatelessWidget {
                             title: 'Determinismo',
                             color: const Color(0xFFD2A8FF),
                             bgColor: const Color(0xFF1A0D2B),
-                            lines: ['Timing preciso por hardware', 'Jitter ±0 na aquisição'],
+                            lines: [
+                              'Timing preciso por hardware',
+                              'Jitter ±0 na aquisição',
+                            ],
                           ),
                         ),
                       ),
@@ -63,7 +73,10 @@ class Slide15 extends StatelessWidget {
                             title: 'Maior Throughput',
                             color: const Color(0xFF3FB950),
                             bgColor: const Color(0xFF0D2818),
-                            lines: ['Velocidade máxima do barramento', 'Transferências burst otimizadas'],
+                            lines: [
+                              'Velocidade máxima do barramento',
+                              'Transferências burst otimizadas',
+                            ],
                           ),
                         ),
                       ),
@@ -76,7 +89,10 @@ class Slide15 extends StatelessWidget {
                             title: 'Tempo Real',
                             color: const Color(0xFFF78166),
                             bgColor: const Color(0xFF2D1600),
-                            lines: ['Ideal para controle e monitoramento', 'Aquisição contínua garantida'],
+                            lines: [
+                              'Ideal para controle e monitoramento',
+                              'Aquisição contínua garantida',
+                            ],
                           ),
                         ),
                       ),
@@ -98,7 +114,13 @@ class _PillarCard extends StatelessWidget {
   final Color color;
   final Color bgColor;
   final List<String> lines;
-  const _PillarCard({required this.icon, required this.title, required this.color, required this.bgColor, required this.lines});
+  const _PillarCard({
+    required this.icon,
+    required this.title,
+    required this.color,
+    required this.bgColor,
+    required this.lines,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -119,15 +141,27 @@ class _PillarCard extends StatelessWidget {
               Icon(icon, color: color, size: 24),
               const SizedBox(width: 10),
               Flexible(
-                child: Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: color)),
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: color,
+                  ),
+                ),
               ),
             ],
           ),
           const SizedBox(height: 10),
-          ...lines.map((l) => Padding(
-                padding: const EdgeInsets.only(bottom: 4),
-                child: Text(l, style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9))),
-              )),
+          ...lines.map(
+            (l) => Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: Text(
+                l,
+                style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)),
+              ),
+            ),
+          ),
         ],
       ),
     );

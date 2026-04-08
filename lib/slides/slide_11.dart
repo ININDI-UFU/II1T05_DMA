@@ -14,14 +14,15 @@ class Slide11 extends StatelessWidget {
         children: [
           const Text(
             'Fluxo Convencional (sem DMA)',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: Color(0xFFF0F0F0)),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFFF0F0F0),
+            ),
           ),
           const SizedBox(height: 24),
           // Timeline diagram
-          _RevealBlock(
-            visible: step >= 1,
-            child: _buildTimeline(),
-          ),
+          _RevealBlock(visible: step >= 1, child: _buildTimeline()),
           const SizedBox(height: 20),
           // Callout
           _RevealBlock(
@@ -32,7 +33,9 @@ class Slide11 extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xFF2D1600).withValues(alpha: 0.6),
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: const Color(0xFFF78166).withValues(alpha: 0.5)),
+                border: Border.all(
+                  color: const Color(0xFFF78166).withValues(alpha: 0.5),
+                ),
               ),
               child: Row(
                 children: [
@@ -41,10 +44,22 @@ class Slide11 extends StatelessWidget {
                   Expanded(
                     child: RichText(
                       text: const TextSpan(
-                        style: TextStyle(fontSize: 14, color: Color(0xFFC9D1D9)),
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Color(0xFFC9D1D9),
+                        ),
                         children: [
-                          TextSpan(text: 'CPU 100% ocupada', style: TextStyle(color: Color(0xFFF78166), fontWeight: FontWeight.w700)),
-                          TextSpan(text: ' — Cada byte passa pela CPU. Não há paralelismo. Gargalo em alta frequência.'),
+                          TextSpan(
+                            text: 'CPU 100% ocupada',
+                            style: TextStyle(
+                              color: Color(0xFFF78166),
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                          TextSpan(
+                            text:
+                                ' — Cada byte passa pela CPU. Não há paralelismo. Gargalo em alta frequência.',
+                          ),
                         ],
                       ),
                     ),
@@ -67,10 +82,22 @@ class Slide11 extends StatelessWidget {
           labelColor: const Color(0xFFF78166),
           blocks: [
             _TBlock('Lê ADC', const Color(0xFF3D1F00), const Color(0xFFF78166)),
-            _TBlock('Move→RAM', const Color(0xFF3D1F00), const Color(0xFFF78166)),
+            _TBlock(
+              'Move→RAM',
+              const Color(0xFF3D1F00),
+              const Color(0xFFF78166),
+            ),
             _TBlock('Lê ADC', const Color(0xFF3D1F00), const Color(0xFFF78166)),
-            _TBlock('Move→RAM', const Color(0xFF3D1F00), const Color(0xFFF78166)),
-            _TBlock('Processa', const Color(0xFF3D1F00), const Color(0xFFF78166)),
+            _TBlock(
+              'Move→RAM',
+              const Color(0xFF3D1F00),
+              const Color(0xFFF78166),
+            ),
+            _TBlock(
+              'Processa',
+              const Color(0xFF3D1F00),
+              const Color(0xFFF78166),
+            ),
           ],
         ),
         const SizedBox(height: 10),
@@ -78,11 +105,31 @@ class Slide11 extends StatelessWidget {
           label: 'Barramento',
           labelColor: const Color(0xFF8B949E),
           blocks: [
-            _TBlock('Ocupado', const Color(0xFF21262D), const Color(0xFF8B949E)),
-            _TBlock('Ocupado', const Color(0xFF21262D), const Color(0xFF8B949E)),
-            _TBlock('Ocupado', const Color(0xFF21262D), const Color(0xFF8B949E)),
-            _TBlock('Ocupado', const Color(0xFF21262D), const Color(0xFF8B949E)),
-            _TBlock('Ocupado', const Color(0xFF21262D), const Color(0xFF8B949E)),
+            _TBlock(
+              'Ocupado',
+              const Color(0xFF21262D),
+              const Color(0xFF8B949E),
+            ),
+            _TBlock(
+              'Ocupado',
+              const Color(0xFF21262D),
+              const Color(0xFF8B949E),
+            ),
+            _TBlock(
+              'Ocupado',
+              const Color(0xFF21262D),
+              const Color(0xFF8B949E),
+            ),
+            _TBlock(
+              'Ocupado',
+              const Color(0xFF21262D),
+              const Color(0xFF8B949E),
+            ),
+            _TBlock(
+              'Ocupado',
+              const Color(0xFF21262D),
+              const Color(0xFF8B949E),
+            ),
           ],
         ),
         const SizedBox(height: 10),
@@ -100,7 +147,10 @@ class Slide11 extends StatelessWidget {
         const SizedBox(height: 8),
         const Align(
           alignment: Alignment.centerRight,
-          child: Text('tempo →', style: TextStyle(fontSize: 11, color: Color(0xFF8B949E))),
+          child: Text(
+            'tempo →',
+            style: TextStyle(fontSize: 11, color: Color(0xFF8B949E)),
+          ),
         ),
       ],
     );
@@ -111,7 +161,11 @@ class _TimelineRow extends StatelessWidget {
   final String label;
   final Color labelColor;
   final List<_TBlock> blocks;
-  const _TimelineRow({required this.label, required this.labelColor, required this.blocks});
+  const _TimelineRow({
+    required this.label,
+    required this.labelColor,
+    required this.blocks,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -119,22 +173,39 @@ class _TimelineRow extends StatelessWidget {
       children: [
         SizedBox(
           width: 90,
-          child: Text(label, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: labelColor)),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w700,
+              color: labelColor,
+            ),
+          ),
         ),
-        ...blocks.expand((b) => [
-              Expanded(
-                child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 2),
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  decoration: BoxDecoration(
-                    color: b.bg,
-                    borderRadius: BorderRadius.circular(6),
-                    border: Border.all(color: b.textColor.withValues(alpha: 0.3)),
+        ...blocks.expand(
+          (b) => [
+            Expanded(
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 2),
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                decoration: BoxDecoration(
+                  color: b.bg,
+                  borderRadius: BorderRadius.circular(6),
+                  border: Border.all(color: b.textColor.withValues(alpha: 0.3)),
+                ),
+                child: Text(
+                  b.label,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: b.textColor,
+                    fontWeight: FontWeight.w600,
                   ),
-                  child: Text(b.label, textAlign: TextAlign.center, style: TextStyle(fontSize: 10, color: b.textColor, fontWeight: FontWeight.w600)),
                 ),
               ),
-            ]),
+            ),
+          ],
+        ),
       ],
     );
   }

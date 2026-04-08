@@ -14,7 +14,11 @@ class Slide19 extends StatelessWidget {
         children: [
           const Text(
             'Buffer Circular — Double Buffering',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: Color(0xFFF0F0F0)),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFFF0F0F0),
+            ),
           ),
           const SizedBox(height: 24),
           Expanded(
@@ -30,18 +34,45 @@ class Slide19 extends StatelessWidget {
                       children: [
                         Row(
                           children: [
-                            Expanded(child: _BufferBox('BUFFER A', const Color(0xFF3FB950), 'DMA escrevendo ↓', ['D0', 'D1', 'D2', '...'])),
+                            Expanded(
+                              child: _BufferBox(
+                                'BUFFER A',
+                                const Color(0xFF3FB950),
+                                'DMA escrevendo ↓',
+                                ['D0', 'D1', 'D2', '...'],
+                              ),
+                            ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                              ),
                               child: Column(
                                 children: [
-                                  const Text('SWAP', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Color(0xFFFFA657))),
+                                  const Text(
+                                    'SWAP',
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w700,
+                                      color: Color(0xFFFFA657),
+                                    ),
+                                  ),
                                   const SizedBox(height: 4),
-                                  Icon(Icons.swap_horiz_rounded, color: const Color(0xFFFFA657), size: 28),
+                                  Icon(
+                                    Icons.swap_horiz_rounded,
+                                    color: const Color(0xFFFFA657),
+                                    size: 28,
+                                  ),
                                 ],
                               ),
                             ),
-                            Expanded(child: _BufferBox('BUFFER B', const Color(0xFF58A6FF), 'CPU processando ↓', ['D0', 'D1', 'D2', 'D3', 'D4'])),
+                            Expanded(
+                              child: _BufferBox(
+                                'BUFFER B',
+                                const Color(0xFF58A6FF),
+                                'CPU processando ↓',
+                                ['D0', 'D1', 'D2', 'D3', 'D4'],
+                              ),
+                            ),
                           ],
                         ),
                       ],
@@ -59,13 +90,22 @@ class Slide19 extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: const Color(0xFF161B22).withValues(alpha: 0.8),
                         borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: const Color(0xFFFFA657).withValues(alpha: 0.3)),
+                        border: Border.all(
+                          color: const Color(0xFFFFA657).withValues(alpha: 0.3),
+                        ),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Text('Como funciona', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Color(0xFFFFA657))),
+                          const Text(
+                            'Como funciona',
+                            style: TextStyle(
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                              color: Color(0xFFFFA657),
+                            ),
+                          ),
                           const SizedBox(height: 10),
                           ...[
                             '1. DMA preenche Buffer A com dados do ADC',
@@ -73,17 +113,38 @@ class Slide19 extends StatelessWidget {
                             '3. DMA troca para Buffer B (swap)',
                             '4. CPU processa Buffer A enquanto DMA enche B',
                             '5. Ciclo contínuo sem perda de dados',
-                          ].map((s) => Padding(
-                                padding: const EdgeInsets.only(bottom: 6),
-                                child: Text(s, style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9))),
-                              )),
+                          ].map(
+                            (s) => Padding(
+                              padding: const EdgeInsets.only(bottom: 6),
+                              child: Text(
+                                s,
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  color: Color(0xFFC9D1D9),
+                                ),
+                              ),
+                            ),
+                          ),
                           const SizedBox(height: 8),
                           RichText(
                             text: const TextSpan(
-                              style: TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)),
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: Color(0xFFC9D1D9),
+                              ),
                               children: [
-                                TextSpan(text: 'Vantagem: ', style: TextStyle(fontWeight: FontWeight.w600)),
-                                TextSpan(text: 'Zero gap entre aquisição e processamento', style: TextStyle(color: Color(0xFF3FB950), fontWeight: FontWeight.w700)),
+                                TextSpan(
+                                  text: 'Vantagem: ',
+                                  style: TextStyle(fontWeight: FontWeight.w600),
+                                ),
+                                TextSpan(
+                                  text:
+                                      'Zero gap entre aquisição e processamento',
+                                  style: TextStyle(
+                                    color: Color(0xFF3FB950),
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -124,23 +185,45 @@ class _BufferBox extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Text(title, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: color)),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w700,
+              color: color,
+            ),
+          ),
           const SizedBox(height: 4),
-          Text(subtitle, style: TextStyle(fontSize: 11, color: color.withValues(alpha: 0.7))),
+          Text(
+            subtitle,
+            style: TextStyle(fontSize: 11, color: color.withValues(alpha: 0.7)),
+          ),
           const SizedBox(height: 10),
           Wrap(
             spacing: 6,
             runSpacing: 6,
             children: cells
-                .map((c) => Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                      decoration: BoxDecoration(
-                        color: color.withValues(alpha: 0.15),
-                        borderRadius: BorderRadius.circular(4),
-                        border: Border.all(color: color.withValues(alpha: 0.3)),
+                .map(
+                  (c) => Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: color.withValues(alpha: 0.15),
+                      borderRadius: BorderRadius.circular(4),
+                      border: Border.all(color: color.withValues(alpha: 0.3)),
+                    ),
+                    child: Text(
+                      c,
+                      style: TextStyle(
+                        fontSize: 11,
+                        color: color,
+                        fontFamily: 'monospace',
                       ),
-                      child: Text(c, style: TextStyle(fontSize: 11, color: color, fontFamily: 'monospace')),
-                    ))
+                    ),
+                  ),
+                )
                 .toList(),
           ),
         ],

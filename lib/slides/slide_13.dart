@@ -14,7 +14,11 @@ class Slide13 extends StatelessWidget {
         children: [
           const Text(
             'Gargalos e Latência — Análise Técnica',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: Color(0xFFF0F0F0)),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFFF0F0F0),
+            ),
           ),
           const SizedBox(height: 28),
           Expanded(
@@ -30,10 +34,26 @@ class Slide13 extends StatelessWidget {
                       titleColor: const Color(0xFFF78166),
                       bgColor: const Color(0xFF2D1600),
                       items: [
-                        _Metric('Cada leitura ADC:', '~20-50 ciclos', const Color(0xFFF78166)),
-                        _Metric('A 1 MSPS =', '20-50M ciclos/s só para I/O', const Color(0xFFF78166)),
-                        _Metric('CPU @ 240 MHz →', '~20% gasto só em transferência', const Color(0xFFF78166)),
-                        _Metric('Jitter de interrupção:', '±1-5 µs', const Color(0xFFF78166)),
+                        _Metric(
+                          'Cada leitura ADC:',
+                          '~20-50 ciclos',
+                          const Color(0xFFF78166),
+                        ),
+                        _Metric(
+                          'A 1 MSPS =',
+                          '20-50M ciclos/s só para I/O',
+                          const Color(0xFFF78166),
+                        ),
+                        _Metric(
+                          'CPU @ 240 MHz →',
+                          '~20% gasto só em transferência',
+                          const Color(0xFFF78166),
+                        ),
+                        _Metric(
+                          'Jitter de interrupção:',
+                          '±1-5 µs',
+                          const Color(0xFFF78166),
+                        ),
                       ],
                     ),
                   ),
@@ -48,10 +68,26 @@ class Slide13 extends StatelessWidget {
                       titleColor: const Color(0xFF3FB950),
                       bgColor: const Color(0xFF0D2818),
                       items: [
-                        _Metric('CPU overhead:', '~0%', const Color(0xFF3FB950)),
-                        _Metric('Throughput:', 'máximo do barramento', const Color(0xFF3FB950)),
-                        _Metric('Jitter de aquisição:', '±0 (hardware-timed)', const Color(0xFF3FB950)),
-                        _Metric('Buffer circular:', 'elimina perda de dados', const Color(0xFF3FB950)),
+                        _Metric(
+                          'CPU overhead:',
+                          '~0%',
+                          const Color(0xFF3FB950),
+                        ),
+                        _Metric(
+                          'Throughput:',
+                          'máximo do barramento',
+                          const Color(0xFF3FB950),
+                        ),
+                        _Metric(
+                          'Jitter de aquisição:',
+                          '±0 (hardware-timed)',
+                          const Color(0xFF3FB950),
+                        ),
+                        _Metric(
+                          'Buffer circular:',
+                          'elimina perda de dados',
+                          const Color(0xFF3FB950),
+                        ),
                       ],
                     ),
                   ),
@@ -68,7 +104,9 @@ class Slide13 extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xFF161B22),
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: const Color(0xFF58A6FF).withValues(alpha: 0.3)),
+                border: Border.all(
+                  color: const Color(0xFF58A6FF).withValues(alpha: 0.3),
+                ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -91,7 +129,12 @@ class _MetricsCard extends StatelessWidget {
   final Color titleColor;
   final Color bgColor;
   final List<_Metric> items;
-  const _MetricsCard({required this.title, required this.titleColor, required this.bgColor, required this.items});
+  const _MetricsCard({
+    required this.title,
+    required this.titleColor,
+    required this.bgColor,
+    required this.items,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -106,20 +149,38 @@ class _MetricsCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: titleColor)),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w700,
+              color: titleColor,
+            ),
+          ),
           const SizedBox(height: 12),
-          ...items.map((m) => Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: RichText(
-                  text: TextSpan(
-                    style: const TextStyle(fontSize: 14, color: Color(0xFFC9D1D9)),
-                    children: [
-                      TextSpan(text: '▸ ${m.label} '),
-                      TextSpan(text: m.value, style: TextStyle(color: m.color, fontWeight: FontWeight.w700)),
-                    ],
+          ...items.map(
+            (m) => Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: RichText(
+                text: TextSpan(
+                  style: const TextStyle(
+                    fontSize: 14,
+                    color: Color(0xFFC9D1D9),
                   ),
+                  children: [
+                    TextSpan(text: '▸ ${m.label} '),
+                    TextSpan(
+                      text: m.value,
+                      style: TextStyle(
+                        color: m.color,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ],
                 ),
-              )),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -144,14 +205,34 @@ class _CompareItem extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(label, style: const TextStyle(fontSize: 12, color: Color(0xFF8B949E))),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 12, color: Color(0xFF8B949E)),
+        ),
         const SizedBox(height: 4),
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(bad, style: const TextStyle(fontSize: 13, color: Color(0xFFF78166), fontWeight: FontWeight.w700)),
-            const Text(' → ', style: TextStyle(fontSize: 13, color: Color(0xFF8B949E))),
-            Text(good, style: const TextStyle(fontSize: 13, color: Color(0xFF3FB950), fontWeight: FontWeight.w700)),
+            Text(
+              bad,
+              style: const TextStyle(
+                fontSize: 13,
+                color: Color(0xFFF78166),
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const Text(
+              ' → ',
+              style: TextStyle(fontSize: 13, color: Color(0xFF8B949E)),
+            ),
+            Text(
+              good,
+              style: const TextStyle(
+                fontSize: 13,
+                color: Color(0xFF3FB950),
+                fontWeight: FontWeight.w700,
+              ),
+            ),
           ],
         ),
       ],

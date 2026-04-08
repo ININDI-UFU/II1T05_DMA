@@ -14,7 +14,11 @@ class Slide04 extends StatelessWidget {
         children: [
           const Text(
             'CPU-Driven vs DMA — Comparação Visual',
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Color(0xFFF0F0F0)),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFFF0F0F0),
+            ),
           ),
           const SizedBox(height: 28),
           Expanded(
@@ -31,9 +35,21 @@ class Slide04 extends StatelessWidget {
                       bgColor: const Color(0xFF3D1F00),
                       borderColor: const Color(0xFFF78166),
                       blocks: [
-                        _FlowBlock('Periférico (ADC/SPI)', const Color(0xFFF78166), const Color(0xFF21262D)),
-                        _FlowBlock('CPU (Ocupada!)', const Color(0xFFF78166), const Color(0xFF3D1F00)),
-                        _FlowBlock('Memória (RAM)', const Color(0xFFF78166), const Color(0xFF21262D)),
+                        _FlowBlock(
+                          'Periférico (ADC/SPI)',
+                          const Color(0xFFF78166),
+                          const Color(0xFF21262D),
+                        ),
+                        _FlowBlock(
+                          'CPU (Ocupada!)',
+                          const Color(0xFFF78166),
+                          const Color(0xFF3D1F00),
+                        ),
+                        _FlowBlock(
+                          'Memória (RAM)',
+                          const Color(0xFFF78166),
+                          const Color(0xFF21262D),
+                        ),
                       ],
                       arrowColor: const Color(0xFFF78166),
                     ),
@@ -51,10 +67,27 @@ class Slide04 extends StatelessWidget {
                       bgColor: const Color(0xFF0D2818),
                       borderColor: const Color(0xFF3FB950),
                       blocks: [
-                        _FlowBlock('Periférico', const Color(0xFF3FB950), const Color(0xFF0D2818)),
-                        _FlowBlock('DMA Controller', const Color(0xFF3FB950), const Color(0xFF0D2818)),
-                        _FlowBlock('Memória', const Color(0xFF3FB950), const Color(0xFF0D2818)),
-                        _FlowBlock('CPU Livre! Outras tarefas', const Color(0xFF3FB950), const Color(0xFF0D2818), dashed: true),
+                        _FlowBlock(
+                          'Periférico',
+                          const Color(0xFF3FB950),
+                          const Color(0xFF0D2818),
+                        ),
+                        _FlowBlock(
+                          'DMA Controller',
+                          const Color(0xFF3FB950),
+                          const Color(0xFF0D2818),
+                        ),
+                        _FlowBlock(
+                          'Memória',
+                          const Color(0xFF3FB950),
+                          const Color(0xFF0D2818),
+                        ),
+                        _FlowBlock(
+                          'CPU Livre! Outras tarefas',
+                          const Color(0xFF3FB950),
+                          const Color(0xFF0D2818),
+                          dashed: true,
+                        ),
                       ],
                       arrowColor: const Color(0xFF3FB950),
                     ),
@@ -98,7 +131,14 @@ class Slide04 extends StatelessWidget {
               Icon(icon, color: iconColor, size: 22),
               const SizedBox(width: 8),
               Flexible(
-                child: Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: iconColor)),
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: iconColor,
+                  ),
+                ),
               ),
             ],
           ),
@@ -107,7 +147,11 @@ class Slide04 extends StatelessWidget {
             if (i.isOdd) {
               return Padding(
                 padding: const EdgeInsets.symmetric(vertical: 6),
-                child: Icon(Icons.arrow_downward_rounded, color: arrowColor, size: 20),
+                child: Icon(
+                  Icons.arrow_downward_rounded,
+                  color: arrowColor,
+                  size: 20,
+                ),
               );
             }
             final b = blocks[i ~/ 2];
@@ -122,7 +166,15 @@ class Slide04 extends StatelessWidget {
                   style: b.dashed ? BorderStyle.none : BorderStyle.solid,
                 ),
               ),
-              child: Text(b.label, textAlign: TextAlign.center, style: TextStyle(fontSize: 13, color: b.color, fontWeight: FontWeight.w600)),
+              child: Text(
+                b.label,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 13,
+                  color: b.color,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             );
           }),
         ],

@@ -14,7 +14,11 @@ class Slide23 extends StatelessWidget {
         children: [
           const Text(
             'Código — Configuração do ADC + DMA',
-            style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700, color: Color(0xFFF0F0F0)),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFFF0F0F0),
+            ),
           ),
           const SizedBox(height: 4),
           const Text(
@@ -72,19 +76,37 @@ void init_adc_continuous(void) {
               decoration: BoxDecoration(
                 color: const Color(0xFF58A6FF).withValues(alpha: 0.06),
                 borderRadius: BorderRadius.circular(8),
-                border: Border(left: BorderSide(color: const Color(0xFF58A6FF), width: 3)),
+                border: Border(
+                  left: BorderSide(color: const Color(0xFF58A6FF), width: 3),
+                ),
               ),
               child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('Pontos-chave:', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: Color(0xFF58A6FF))),
+                  Text(
+                    'Pontos-chave:',
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF58A6FF),
+                    ),
+                  ),
                   SizedBox(height: 4),
-                  Text('▸ max_store_buf_size — tamanho máximo do pool de buffers DMA internos', style: TextStyle(fontSize: 12, color: Color(0xFFC9D1D9))),
+                  Text(
+                    '▸ max_store_buf_size — tamanho máximo do pool de buffers DMA internos',
+                    style: TextStyle(fontSize: 12, color: Color(0xFFC9D1D9)),
+                  ),
                   SizedBox(height: 2),
-                  Text('▸ conv_frame_size — tamanho de cada frame de conversão', style: TextStyle(fontSize: 12, color: Color(0xFFC9D1D9))),
+                  Text(
+                    '▸ conv_frame_size — tamanho de cada frame de conversão',
+                    style: TextStyle(fontSize: 12, color: Color(0xFFC9D1D9)),
+                  ),
                   SizedBox(height: 2),
-                  Text('▸ adc_pattern — seleciona canal, atenuação e resolução', style: TextStyle(fontSize: 12, color: Color(0xFFC9D1D9))),
+                  Text(
+                    '▸ adc_pattern — seleciona canal, atenuação e resolução',
+                    style: TextStyle(fontSize: 12, color: Color(0xFFC9D1D9)),
+                  ),
                 ],
               ),
             ),
@@ -107,12 +129,19 @@ class _CodeBlock extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFF0D1117),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: const Color(0xFF3FB950).withValues(alpha: 0.3)),
+        border: Border.all(
+          color: const Color(0xFF3FB950).withValues(alpha: 0.3),
+        ),
       ),
       child: SingleChildScrollView(
         child: SelectableText(
           code,
-          style: const TextStyle(fontFamily: 'monospace', fontSize: 12, height: 1.5, color: Color(0xFFC9D1D9)),
+          style: const TextStyle(
+            fontFamily: 'monospace',
+            fontSize: 12,
+            height: 1.5,
+            color: Color(0xFFC9D1D9),
+          ),
         ),
       ),
     );

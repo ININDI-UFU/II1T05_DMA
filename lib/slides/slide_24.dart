@@ -14,7 +14,11 @@ class Slide24 extends StatelessWidget {
         children: [
           const Text(
             'Código — Callback e Loop Principal',
-            style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700, color: Color(0xFFF0F0F0)),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFFF0F0F0),
+            ),
           ),
           const SizedBox(height: 4),
           const Text(
@@ -26,7 +30,8 @@ class Slide24 extends StatelessWidget {
             child: _RevealBlock(
               visible: step >= 1,
               child: _CodeBlock(
-                code: '''// Callback chamado quando um frame de conversão está pronto
+                code:
+                    '''// Callback chamado quando um frame de conversão está pronto
 static bool IRAM_ATTR adc_conv_done_cb(
         adc_continuous_handle_t handle,
         const adc_continuous_evt_data_t *edata,
@@ -94,12 +99,19 @@ class _CodeBlock extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color(0xFF0D1117),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: const Color(0xFF3FB950).withValues(alpha: 0.3)),
+        border: Border.all(
+          color: const Color(0xFF3FB950).withValues(alpha: 0.3),
+        ),
       ),
       child: SingleChildScrollView(
         child: SelectableText(
           code,
-          style: const TextStyle(fontFamily: 'monospace', fontSize: 12, height: 1.5, color: Color(0xFFC9D1D9)),
+          style: const TextStyle(
+            fontFamily: 'monospace',
+            fontSize: 12,
+            height: 1.5,
+            color: Color(0xFFC9D1D9),
+          ),
         ),
       ),
     );

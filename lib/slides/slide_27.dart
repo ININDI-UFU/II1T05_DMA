@@ -14,7 +14,11 @@ class Slide27 extends StatelessWidget {
         children: [
           const Text(
             'Comparação: Polling vs Interrupt vs DMA',
-            style: TextStyle(fontSize: 26, fontWeight: FontWeight.w700, color: Color(0xFFF0F0F0)),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFFF0F0F0),
+            ),
           ),
           const SizedBox(height: 28),
           // Header
@@ -68,12 +72,18 @@ class Slide27 extends StatelessWidget {
               decoration: BoxDecoration(
                 color: const Color(0xFF3FB950).withValues(alpha: 0.08),
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: const Color(0xFF3FB950).withValues(alpha: 0.3)),
+                border: Border.all(
+                  color: const Color(0xFF3FB950).withValues(alpha: 0.3),
+                ),
               ),
               child: const Text(
                 'Para aplicações de alta frequência e tempo real, DMA é a escolha ideal — libera a CPU e garante aquisição determinística.',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Color(0xFF3FB950)),
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF3FB950),
+                ),
               ),
             ),
           ),
@@ -95,12 +105,73 @@ class _TableHeader extends StatelessWidget {
       ),
       child: const Row(
         children: [
-          Expanded(flex: 2, child: Text('Método', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Color(0xFF8B949E)))),
-          Expanded(flex: 3, child: Text('Uso CPU', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Color(0xFF8B949E)))),
-          Expanded(flex: 2, child: Text('Throughput', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Color(0xFF8B949E)))),
-          Expanded(flex: 2, child: Text('Latência', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Color(0xFF8B949E)))),
-          Expanded(flex: 2, child: Text('Complex.', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Color(0xFF8B949E)))),
-          SizedBox(width: 40, child: Text('RT', textAlign: TextAlign.center, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700, color: Color(0xFF8B949E)))),
+          Expanded(
+            flex: 2,
+            child: Text(
+              'Método',
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF8B949E),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 3,
+            child: Text(
+              'Uso CPU',
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF8B949E),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Text(
+              'Throughput',
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF8B949E),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Text(
+              'Latência',
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF8B949E),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Text(
+              'Complex.',
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF8B949E),
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 40,
+            child: Text(
+              'RT',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFF8B949E),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -115,7 +186,15 @@ class _TableRow extends StatelessWidget {
   final String latency;
   final String complexity;
   final String realTime;
-  const _TableRow({required this.method, required this.color, required this.cpu, required this.throughput, required this.latency, required this.complexity, required this.realTime});
+  const _TableRow({
+    required this.method,
+    required this.color,
+    required this.cpu,
+    required this.throughput,
+    required this.latency,
+    required this.complexity,
+    required this.realTime,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -123,16 +202,62 @@ class _TableRow extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.06),
-        border: Border(left: BorderSide(color: color, width: 3), bottom: BorderSide(color: const Color(0xFF30363D).withValues(alpha: 0.5))),
+        border: Border(
+          left: BorderSide(color: color, width: 3),
+          bottom: BorderSide(
+            color: const Color(0xFF30363D).withValues(alpha: 0.5),
+          ),
+        ),
       ),
       child: Row(
         children: [
-          Expanded(flex: 2, child: Text(method, style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: color))),
-          Expanded(flex: 3, child: Text(cpu, style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)))),
-          Expanded(flex: 2, child: Text(throughput, style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)))),
-          Expanded(flex: 2, child: Text(latency, style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)))),
-          Expanded(flex: 2, child: Text(complexity, style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)))),
-          SizedBox(width: 40, child: Text(realTime, textAlign: TextAlign.center, style: TextStyle(fontSize: 14, color: color))),
+          Expanded(
+            flex: 2,
+            child: Text(
+              method,
+              style: TextStyle(
+                fontSize: 13,
+                fontWeight: FontWeight.w700,
+                color: color,
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 3,
+            child: Text(
+              cpu,
+              style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Text(
+              throughput,
+              style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Text(
+              latency,
+              style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)),
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Text(
+              complexity,
+              style: const TextStyle(fontSize: 13, color: Color(0xFFC9D1D9)),
+            ),
+          ),
+          SizedBox(
+            width: 40,
+            child: Text(
+              realTime,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 14, color: color),
+            ),
+          ),
         ],
       ),
     );

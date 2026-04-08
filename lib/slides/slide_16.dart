@@ -14,7 +14,11 @@ class Slide16 extends StatelessWidget {
         children: [
           const Text(
             'Exemplos de Uso do DMA',
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Color(0xFFF0F0F0)),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFFF0F0F0),
+            ),
           ),
           const SizedBox(height: 28),
           _RevealBlock(
@@ -73,7 +77,11 @@ class _ExampleCard extends StatelessWidget {
   final String title;
   final Color color;
   final List<String> bullets;
-  const _ExampleCard({required this.title, required this.color, required this.bullets});
+  const _ExampleCard({
+    required this.title,
+    required this.color,
+    required this.bullets,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -88,12 +96,24 @@ class _ExampleCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: color)),
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w700,
+              color: color,
+            ),
+          ),
           const SizedBox(height: 6),
-          ...bullets.map((b) => Padding(
-                padding: const EdgeInsets.only(bottom: 3),
-                child: Text(b, style: const TextStyle(fontSize: 14, color: Color(0xFFC9D1D9))),
-              )),
+          ...bullets.map(
+            (b) => Padding(
+              padding: const EdgeInsets.only(bottom: 3),
+              child: Text(
+                b,
+                style: const TextStyle(fontSize: 14, color: Color(0xFFC9D1D9)),
+              ),
+            ),
+          ),
         ],
       ),
     );

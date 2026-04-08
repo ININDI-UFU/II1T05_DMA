@@ -14,7 +14,11 @@ class Slide07 extends StatelessWidget {
         children: [
           const Text(
             'Arquitetura Interna — Visão Geral',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: Color(0xFFF0F0F0)),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFFF0F0F0),
+            ),
           ),
           const SizedBox(height: 20),
           Expanded(
@@ -28,13 +32,33 @@ class Slide07 extends StatelessWidget {
                         visible: step >= 1,
                         child: Row(
                           children: [
-                            Expanded(child: _ArchBlock('Xtensa LX7\nCPU Core 0', const Color(0xFF58A6FF))),
+                            Expanded(
+                              child: _ArchBlock(
+                                'Xtensa LX7\nCPU Core 0',
+                                const Color(0xFF58A6FF),
+                              ),
+                            ),
                             const SizedBox(width: 10),
-                            Expanded(child: _ArchBlock('Xtensa LX7\nCPU Core 1', const Color(0xFF58A6FF))),
+                            Expanded(
+                              child: _ArchBlock(
+                                'Xtensa LX7\nCPU Core 1',
+                                const Color(0xFF58A6FF),
+                              ),
+                            ),
                             const SizedBox(width: 10),
-                            Expanded(child: _ArchBlock('SRAM 512KB', const Color(0xFFD2A8FF))),
+                            Expanded(
+                              child: _ArchBlock(
+                                'SRAM 512KB',
+                                const Color(0xFFD2A8FF),
+                              ),
+                            ),
                             const SizedBox(width: 10),
-                            Expanded(child: _ArchBlock('Flash SPI (ext)', const Color(0xFFD2A8FF))),
+                            Expanded(
+                              child: _ArchBlock(
+                                'Flash SPI (ext)',
+                                const Color(0xFFD2A8FF),
+                              ),
+                            ),
                           ],
                         ),
                       ),
@@ -42,7 +66,11 @@ class Slide07 extends StatelessWidget {
                       // Barramento + GDMA
                       _RevealBlock(
                         visible: step >= 1,
-                        child: _ArchBlock('System Bus (AHB/AXI)', const Color(0xFFFFA657), wide: true),
+                        child: _ArchBlock(
+                          'System Bus (AHB/AXI)',
+                          const Color(0xFFFFA657),
+                          wide: true,
+                        ),
                       ),
                       const SizedBox(height: 12),
                       _RevealBlock(
@@ -51,16 +79,37 @@ class Slide07 extends StatelessWidget {
                           width: double.infinity,
                           padding: const EdgeInsets.all(14),
                           decoration: BoxDecoration(
-                            color: const Color(0xFF0D2818).withValues(alpha: 0.6),
+                            color: const Color(
+                              0xFF0D2818,
+                            ).withValues(alpha: 0.6),
                             borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: const Color(0xFF3FB950).withValues(alpha: 0.5), width: 1.5),
+                            border: Border.all(
+                              color: const Color(
+                                0xFF3FB950,
+                              ).withValues(alpha: 0.5),
+                              width: 1.5,
+                            ),
                           ),
                           child: Column(
                             children: [
-                              const Text('GDMA Controller', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xFF3FB950))),
+                              const Text(
+                                'GDMA Controller',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  color: Color(0xFF3FB950),
+                                ),
+                              ),
                               const SizedBox(height: 4),
-                              Text('5 Canais TX + 5 Canais RX · Prioridade configurável',
-                                  style: TextStyle(fontSize: 12, color: const Color(0xFF3FB950).withValues(alpha: 0.7))),
+                              Text(
+                                '5 Canais TX + 5 Canais RX · Prioridade configurável',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: const Color(
+                                    0xFF3FB950,
+                                  ).withValues(alpha: 0.7),
+                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -73,23 +122,58 @@ class Slide07 extends StatelessWidget {
                           children: [
                             Row(
                               children: [
-                                Expanded(child: _ArchBlock('ADC (SAR)\n2x 12-bit', const Color(0xFFF78166))),
+                                Expanded(
+                                  child: _ArchBlock(
+                                    'ADC (SAR)\n2x 12-bit',
+                                    const Color(0xFFF78166),
+                                  ),
+                                ),
                                 const SizedBox(width: 8),
-                                Expanded(child: _ArchBlock('SPI (x4)\nMaster/Slave', const Color(0xFFF78166))),
+                                Expanded(
+                                  child: _ArchBlock(
+                                    'SPI (x4)\nMaster/Slave',
+                                    const Color(0xFFF78166),
+                                  ),
+                                ),
                                 const SizedBox(width: 8),
-                                Expanded(child: _ArchBlock('I2S (x2)\nÁudio Digital', const Color(0xFFF78166))),
+                                Expanded(
+                                  child: _ArchBlock(
+                                    'I2S (x2)\nÁudio Digital',
+                                    const Color(0xFFF78166),
+                                  ),
+                                ),
                                 const SizedBox(width: 8),
-                                Expanded(child: _ArchBlock('UART (x3)\nSerial', const Color(0xFFF78166))),
+                                Expanded(
+                                  child: _ArchBlock(
+                                    'UART (x3)\nSerial',
+                                    const Color(0xFFF78166),
+                                  ),
+                                ),
                               ],
                             ),
                             const SizedBox(height: 8),
                             Row(
                               children: [
-                                Expanded(child: _ArchBlock('Wi-Fi 802.11\nb/g/n + BLE 5.0', const Color(0xFF79C0FF))),
+                                Expanded(
+                                  child: _ArchBlock(
+                                    'Wi-Fi 802.11\nb/g/n + BLE 5.0',
+                                    const Color(0xFF79C0FF),
+                                  ),
+                                ),
                                 const SizedBox(width: 8),
-                                Expanded(child: _ArchBlock('USB OTG 1.1', const Color(0xFF79C0FF))),
+                                Expanded(
+                                  child: _ArchBlock(
+                                    'USB OTG 1.1',
+                                    const Color(0xFF79C0FF),
+                                  ),
+                                ),
                                 const SizedBox(width: 8),
-                                Expanded(child: _ArchBlock('GPIO\n(45 pinos)', const Color(0xFF79C0FF))),
+                                Expanded(
+                                  child: _ArchBlock(
+                                    'GPIO\n(45 pinos)',
+                                    const Color(0xFF79C0FF),
+                                  ),
+                                ),
                               ],
                             ),
                           ],
@@ -108,7 +192,10 @@ class Slide07 extends StatelessWidget {
                             _LegendDot('Barramento', const Color(0xFFFFA657)),
                             _LegendDot('DMA', const Color(0xFF3FB950)),
                             _LegendDot('Periféricos', const Color(0xFFF78166)),
-                            _LegendDot('Conectividade', const Color(0xFF79C0FF)),
+                            _LegendDot(
+                              'Conectividade',
+                              const Color(0xFF79C0FF),
+                            ),
                           ],
                         ),
                       ),
@@ -143,7 +230,11 @@ class _ArchBlock extends StatelessWidget {
       child: Text(
         label,
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: color),
+        style: TextStyle(
+          fontSize: 13,
+          fontWeight: FontWeight.w600,
+          color: color,
+        ),
       ),
     );
   }
@@ -159,7 +250,11 @@ class _LegendDot extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Container(width: 8, height: 8, decoration: BoxDecoration(color: color, shape: BoxShape.circle)),
+        Container(
+          width: 8,
+          height: 8,
+          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+        ),
         const SizedBox(width: 4),
         Text(label, style: TextStyle(fontSize: 11, color: color)),
       ],

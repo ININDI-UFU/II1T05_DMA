@@ -49,7 +49,7 @@ class Slide25 extends StatelessWidget {
           const Text(
             'Fluxo de Execução do Código',
             style: TextStyle(
-              fontSize: 28,
+              fontSize: 32,
               fontWeight: FontWeight.w700,
               color: Color(0xFFF0F0F0),
             ),

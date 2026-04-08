@@ -14,7 +14,11 @@ class Slide08 extends StatelessWidget {
         children: [
           const Text(
             'Controlador GDMA — Detalhes',
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700, color: Color(0xFFF0F0F0)),
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w700,
+              color: Color(0xFFF0F0F0),
+            ),
           ),
           const SizedBox(height: 28),
           _RevealBlock(
@@ -38,14 +42,30 @@ class Slide08 extends StatelessWidget {
               children: [
                 const Text(
                   'Modos de Transferência',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xFF58A6FF)),
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFF58A6FF),
+                  ),
                 ),
                 const SizedBox(height: 8),
-                _TransferMode('Periférico → Memória', const Color(0xFF3FB950), 'leitura ADC, recepção SPI'),
+                _TransferMode(
+                  'Periférico → Memória',
+                  const Color(0xFF3FB950),
+                  'leitura ADC, recepção SPI',
+                ),
                 const SizedBox(height: 6),
-                _TransferMode('Memória → Periférico', const Color(0xFF58A6FF), 'transmissão SPI, saída I2S'),
+                _TransferMode(
+                  'Memória → Periférico',
+                  const Color(0xFF58A6FF),
+                  'transmissão SPI, saída I2S',
+                ),
                 const SizedBox(height: 6),
-                _TransferMode('Memória → Memória', const Color(0xFFD2A8FF), 'cópia rápida de blocos'),
+                _TransferMode(
+                  'Memória → Memória',
+                  const Color(0xFFD2A8FF),
+                  'cópia rápida de blocos',
+                ),
               ],
             ),
           ),
@@ -66,16 +86,32 @@ class Slide08 extends StatelessWidget {
     );
   }
 
-  Widget _buildBulletSection(String title, Color titleColor, List<String> bullets) {
+  Widget _buildBulletSection(
+    String title,
+    Color titleColor,
+    List<String> bullets,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: titleColor)),
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w700,
+            color: titleColor,
+          ),
+        ),
         const SizedBox(height: 8),
-        ...bullets.map((b) => Padding(
-              padding: const EdgeInsets.only(bottom: 4),
-              child: Text(b, style: const TextStyle(fontSize: 14, color: Color(0xFFC9D1D9))),
-            )),
+        ...bullets.map(
+          (b) => Padding(
+            padding: const EdgeInsets.only(bottom: 4),
+            child: Text(
+              b,
+              style: const TextStyle(fontSize: 14, color: Color(0xFFC9D1D9)),
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -98,10 +134,20 @@ class _TransferMode extends StatelessWidget {
             borderRadius: BorderRadius.circular(6),
             border: Border.all(color: color.withValues(alpha: 0.4)),
           ),
-          child: Text(label, style: TextStyle(fontSize: 13, fontWeight: FontWeight.w700, color: color)),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w700,
+              color: color,
+            ),
+          ),
         ),
         const SizedBox(width: 10),
-        Text('($desc)', style: const TextStyle(fontSize: 13, color: Color(0xFF8B949E))),
+        Text(
+          '($desc)',
+          style: const TextStyle(fontSize: 13, color: Color(0xFF8B949E)),
+        ),
       ],
     );
   }
